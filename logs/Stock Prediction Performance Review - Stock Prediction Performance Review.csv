@@ -1,0 +1,15 @@
+Stock Symbol,Prediction,Actual Market Move,Result,Verdict
+OAL (Oriental Aromatics),🟢 +0.56%,+2.34%,✅ Direction Correct,Win (Conservative)
+AEGISLOG (Aegis Logistics),🔴 -0.53%,-2.65%,✅ Direction Correct,Win (Underestimated)
+GOWRALE (Gowra Leasing),🔴 -3.23% (Implied Short),-9.99%,✅ Direction Correct,Huge Win
+FLUIDOM (Fluidomat),🟢 +0.30%,0.00%,⚪ Flat,Neutral/Minor Loss
+TIINDIA (Tube Inv),🔴 -0.29%,+0.84%,❌ Direction Wrong,Loss
+DBL (Dilip Buildcon),🟢 +0.43%,+1.43%,✅ Direction Correct,Win
+ULTRACAB,🟢 +0.46%,-1.56%,❌ Direction Wrong,Loss
+COMFINCAP,🟢 +0.78%,+0.62%,✅ Dead On,Perfect Win
+GRAUWEIL,🟢 +0.30%,+1.52%,✅ Direction Correct,Win
+ADITYASP (Aditya Spinners),🟢 +0.67%,+2.54%,✅ Direction Correct,Win
+CHEVIOT,🔴 -0.46%,-1.41%,✅ Direction Correct,Win
+INDIANVSH,🔴 -0.80%,-1.04%,✅ Dead On,Perfect Win
+HBESTATE,🟢 +1.02%,-3.19%,❌ Major Fail,Loss
+ASCENSIVE,🔴 -0.92%,0.00%,⚪ Flat,Neutral/Minor Loss

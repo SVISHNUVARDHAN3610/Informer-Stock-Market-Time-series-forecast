@@ -1,0 +1,85 @@
+Training started.........
+Epoch: 1/42 || Loss: 0.3022 || Gradient: 0.8052 || avg_loss: 0.3291 ||
+Validation || Loss: 1.444 || MAE: 1.851 || R2: -42.600
+Epoch: 2/42 || Loss: 0.3015 || Gradient: 0.7617 || avg_loss: 0.3201 ||
+Validation || Loss: 1.427 || MAE: 1.831 || R2: -53.258
+Epoch: 3/42 || Loss: 0.2909 || Gradient: 0.7885 || avg_loss: 0.3176 ||
+Validation || Loss: 1.445 || MAE: 1.852 || R2: -42.056
+Epoch: 4/42 || Loss: 0.2914 || Gradient: 0.8609 || avg_loss: 0.3155 ||
+Validation || Loss: 1.444 || MAE: 1.849 || R2: -36.694
+Epoch: 5/42 || Loss: 0.2696 || Gradient: 1.0072 || avg_loss: 0.3132 ||
+Validation || Loss: 1.443 || MAE: 1.846 || R2: -30.506
+Epoch: 6/42 || Loss: 0.2589 || Gradient: 0.9850 || avg_loss: 0.3113 ||
+Validation || Loss: 1.454 || MAE: 1.858 || R2: -25.821
+Epoch: 7/42 || Loss: 0.2468 || Gradient: 1.0271 || avg_loss: 0.3093 ||
+Validation || Loss: 1.455 || MAE: 1.860 || R2: -23.510
+Epoch: 8/42 || Loss: 0.2353 || Gradient: 0.9926 || avg_loss: 0.3074 ||
+Validation || Loss: 1.473 || MAE: 1.880 || R2: -17.190
+Epoch: 9/42 || Loss: 0.2251 || Gradient: 1.1149 || avg_loss: 0.3055 ||
+Validation || Loss: 1.485 || MAE: 1.892 || R2: -15.295
+Epoch: 10/42 || Loss: 0.2063 || Gradient: 0.9729 || avg_loss: 0.3033 ||
+Validation || Loss: 1.513 || MAE: 1.921 || R2: -11.732
+Epoch: 11/42 || Loss: 0.2202 || Gradient: 1.3340 || avg_loss: 0.3011 ||
+Validation || Loss: 1.522 || MAE: 1.932 || R2: -10.301
+Epoch: 12/42 || Loss: 0.2005 || Gradient: 1.4208 || avg_loss: 0.2989 ||
+Validation || Loss: 1.542 || MAE: 1.952 || R2: -9.771
+Epoch: 13/42 || Loss: 0.2226 || Gradient: 1.3356 || avg_loss: 0.2967 ||
+Validation || Loss: 1.498 || MAE: 1.905 || R2: -12.443
+Epoch: 14/42 || Loss: 0.1998 || Gradient: 1.1362 || avg_loss: 0.2946 ||
+Validation || Loss: 1.536 || MAE: 1.946 || R2: -8.869
+Epoch: 15/42 || Loss: 0.1933 || Gradient: 1.1602 || avg_loss: 0.2932 ||
+Validation || Loss: 1.523 || MAE: 1.933 || R2: -9.713
+Epoch: 16/42 || Loss: 0.2113 || Gradient: 1.0860 || avg_loss: 0.2904 ||
+Validation || Loss: 1.542 || MAE: 1.951 || R2: -8.274
+Epoch: 17/42 || Loss: 0.2192 || Gradient: 1.1956 || avg_loss: 0.2889 ||
+Validation || Loss: 1.511 || MAE: 1.919 || R2: -10.791
+Epoch: 18/42 || Loss: 0.2030 || Gradient: 1.1475 || avg_loss: 0.2864 ||
+Validation || Loss: 1.547 || MAE: 1.958 || R2: -7.972
+Epoch: 19/42 || Loss: 0.2025 || Gradient: 1.0837 || avg_loss: 0.2840 ||
+Validation || Loss: 1.540 || MAE: 1.951 || R2: -7.877
+Epoch: 20/42 || Loss: 0.2028 || Gradient: 1.0628 || avg_loss: 0.2820 ||
+Validation || Loss: 1.555 || MAE: 1.965 || R2: -7.531
+Epoch: 21/42 || Loss: 0.2057 || Gradient: 1.3164 || avg_loss: 0.2803 ||
+Validation || Loss: 1.550 || MAE: 1.959 || R2: -8.235
+Epoch: 22/42 || Loss: 0.1795 || Gradient: 1.1793 || avg_loss: 0.2782 ||
+Validation || Loss: 1.531 || MAE: 1.940 || R2: -9.067
+Epoch: 23/42 || Loss: 0.1958 || Gradient: 1.0480 || avg_loss: 0.2764 ||
+Validation || Loss: 1.569 || MAE: 1.980 || R2: -6.964
+Epoch: 24/42 || Loss: 0.1919 || Gradient: 1.0510 || avg_loss: 0.2737 ||
+Validation || Loss: 1.562 || MAE: 1.972 || R2: -7.053
+Epoch: 25/42 || Loss: 0.2033 || Gradient: 1.0329 || avg_loss: 0.2726 ||
+Validation || Loss: 1.536 || MAE: 1.945 || R2: -8.249
+Epoch: 26/42 || Loss: 0.1845 || Gradient: 1.1809 || avg_loss: 0.2706 ||
+Validation || Loss: 1.516 || MAE: 1.924 || R2: -9.259
+Epoch: 27/42 || Loss: 0.2085 || Gradient: 1.0875 || avg_loss: 0.2684 ||
+Validation || Loss: 1.576 || MAE: 1.988 || R2: -6.522
+Epoch: 28/42 || Loss: 0.1831 || Gradient: 1.0270 || avg_loss: 0.2662 ||
+Validation || Loss: 1.563 || MAE: 1.973 || R2: -7.058
+Epoch: 29/42 || Loss: 0.1930 || Gradient: 1.1441 || avg_loss: 0.2645 ||
+Validation || Loss: 1.527 || MAE: 1.935 || R2: -9.201
+Epoch: 30/42 || Loss: 0.2051 || Gradient: 1.0683 || avg_loss: 0.2628 ||
+Validation || Loss: 1.553 || MAE: 1.963 || R2: -6.733
+Epoch: 31/42 || Loss: 0.1742 || Gradient: 1.1528 || avg_loss: 0.2598 ||
+Validation || Loss: 1.550 || MAE: 1.959 || R2: -7.434
+Epoch: 32/42 || Loss: 0.1894 || Gradient: 1.2263 || avg_loss: 0.2584 ||
+Validation || Loss: 1.551 || MAE: 1.961 || R2: -7.091
+Epoch: 33/42 || Loss: 0.2071 || Gradient: 1.0403 || avg_loss: 0.2551 ||
+Validation || Loss: 1.519 || MAE: 1.927 || R2: -9.339
+Epoch: 34/42 || Loss: 0.1898 || Gradient: 1.2224 || avg_loss: 0.2546 ||
+Validation || Loss: 1.560 || MAE: 1.970 || R2: -7.122
+Epoch: 35/42 || Loss: 0.1877 || Gradient: 1.3361 || avg_loss: 0.2519 ||
+Validation || Loss: 1.612 || MAE: 2.024 || R2: -5.088
+Epoch: 36/42 || Loss: 0.1572 || Gradient: 0.9712 || avg_loss: 0.2510 ||
+Validation || Loss: 1.571 || MAE: 1.981 || R2: -6.513
+Epoch: 37/42 || Loss: 0.2135 || Gradient: 1.4465 || avg_loss: 0.2491 ||
+Validation || Loss: 1.528 || MAE: 1.935 || R2: -8.553
+Epoch: 38/42 || Loss: 0.1989 || Gradient: 1.4085 || avg_loss: 0.2481 ||
+Validation || Loss: 1.625 || MAE: 2.038 || R2: -5.514
+Epoch: 39/42 || Loss: 0.2070 || Gradient: 1.3884 || avg_loss: 0.2452 ||
+Validation || Loss: 1.577 || MAE: 1.987 || R2: -7.047
+Epoch: 40/42 || Loss: 0.1992 || Gradient: 1.1728 || avg_loss: 0.2441 ||
+Validation || Loss: 1.593 || MAE: 2.003 || R2: -5.894
+Epoch: 41/42 || Loss: 0.2167 || Gradient: 1.2990 || avg_loss: 0.2413 ||
+Validation || Loss: 1.548 || MAE: 1.957 || R2: -7.509
+Epoch: 42/42 || Loss: 0.1798 || Gradient: 1.3271 || avg_loss: 0.2395 ||
+Validation || Loss: 1.524 || MAE: 1.931 || R2: -9.038

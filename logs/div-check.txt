@@ -1,0 +1,12 @@
+DEBUGGING MODE STARTED
+y_true shape: torch.Size([64, 1, 1])
+Output shape: torch.Size([64, 1, 1])
+
+--- SAMPLE VALUES ---
+First 5 Targets (y_true):
+[-0.9859405   0.03001337  0.13136967  0.48722103  0.1754244 ]
+First 5 Predictions (output):
+[ 0.5751945   0.04236789  0.04107276 -0.00713196 -0.01439562]
+---------------------
+
+Calculated Loss: 0.30210334062576294
