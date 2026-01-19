@@ -225,11 +225,11 @@ If you use this stock market adaptation or the original Informer architecture in
 ```
 
 
-## Contact & Data Access
+## 📬 Contact & Data Access
 
 This project maintains a high standard of data integrity and reproducibility. Due to the proprietary nature and massive scale of the training set (**4,452 tickers** with global macro-indices), the full dataset is not hosted in this repository.
 
-### Requesting the Dataset
+### 🏛️ Requesting the Dataset
 Researchers and developers interested in replicating these results or collaborating on financial AI projects may request access to the **pre-processed Market Data**.
 
 <div align="center">
