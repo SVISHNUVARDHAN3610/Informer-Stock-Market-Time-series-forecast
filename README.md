@@ -61,23 +61,36 @@ Unlike standard encoder-decoder structures that generate outputs step-by-step (d
 
 ---
 
-## 💾 Dataset & Features
+## 💾 Dataset & Feature Engineering
 
-To ensure robust generalization across different market conditions, this model was trained on a high-dimensional financial dataset comprising **4,452** individual equity instruments. The dataset is designed to capture not just price action, but the broader macroeconomic context driving market volatility.
+This project utilizes a high-dimensional financial dataset constructed from **4,452** individual equity instruments. Unlike standard datasets that rely solely on OHLCV data, our feature space is engineered to capture market microstructure, sector rotation, and global macroeconomic correlations.
 
-### Feature Composition
-The input vector ($X_t$) is constructed from a multi-variate time series including:
+The model processes a dense input vector of **~100 features per timestamp**, ensuring robust generalization across volatile market regimes.
 
-| Feature Category | Description | Count/Examples |
-| :--- | :--- | :--- |
-| **📈 Individual Equities** | High-cap, Mid-cap, and Small-cap stocks across NSE/BSE. | **4,452 Stocks** |
-| **🇮🇳 Key Benchmarks** | Primary national indices reflecting market health. | **NIFTY 50**, **SENSEX** |
-| **🏭 Sectoral Indices** | Domain-specific performance metrics. | **NIFTY IT**, **NIFTY PHARMA**, Bank, Auto, Metal |
-| **🌍 Global Indices** | International market indicators to capture cross-border correlation. | Major Global Indices (US, European, Asian Markets) |
-| **📊 Technical Indicators** | Computed momentum and volatility signals. | RSI, MACD, Bollinger Bands, ATR |
+### 1. Primary Asset Data
+For each of the 4,452 stocks, we normalize and ingest the core price action data:
+* **OHLCV:** Open, High, Low, Close, Volume.
+* **Log Returns:** $\ln(P_t / P_{t-1})$ for stationarity.
 
-> **Data Preprocessing:** All series were normalized using Zero-Mean Unit-Variance (Z-Score) normalization to stabilize convergence during the ProbSparse attention mechanism calculation.
+### 2. Technical Indicators (Momentum & Volatility)
+We compute proprietary technical signals to feed the attention mechanism with trend-aware context:
+* **Trend:** Exponential Moving Averages (EMA 9, 21, 50, 100), MACD (Line, Signal, Hist).
+* **Momentum:** RSI (14), Efficiency Ratio.
+* **Volatility:** Average True Range (ATR), Rolling Volatility (10, 20-day windows), Sharpe Ratio (20-day).
+* **Statistical Features:** Z-Scores for Volume and Returns to normalize outliers.
 
+### 3. Macro-Economic Context (Global & Local)
+To solve the "isolated asset" bias, we inject broad market health indicators directly into the feature vector:
+* **🇮🇳 Indian Benchmarks:** NIFTY 50, SENSEX, FinNifty.
+* **🏭 Sectoral Indices:** NIFTY IT, Pharma, Bank, Auto, Metal, Energy, Realty, PSU Bank.
+* **🌍 Global Correlations:** S&P 500 (USA), NASDAQ, Dow Jones, FTSE (UK), DAX (Germany), CAC40 (France), Nikkei (Japan), Hang Seng, Shanghai, Taiwan Weighted.
+
+### 4. Lagged Temporal Features
+To capture immediate past dependencies explicitly before the Transformer layers:
+* **Price Lags:** $t_{-1}, t_{-2}, t_{-3}, t_{-4}$ percentage changes.
+* **Volume Lags:** Volume changes over the last 4 distinct time steps.
+
+> **Data Scale:** The final dataset comprises millions of data points, processed with Zero-Mean Unit-Variance normalization to stabilize the **ProbSparse** attention mechanism.
 
 ## Installation & Usage
 
