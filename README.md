@@ -61,7 +61,7 @@ Unlike standard encoder-decoder structures that generate outputs step-by-step (d
 
 ---
 
-## 💾 Dataset & Feature Engineering
+##  Dataset & Feature Engineering
 
 This project utilizes a high-dimensional financial dataset constructed from **4,452** individual equity instruments. Unlike standard datasets that rely solely on OHLCV data, our feature space is engineered to capture market microstructure, sector rotation, and global macroeconomic correlations.
 
@@ -132,7 +132,7 @@ The Informer model processes four specific tensors during the forward pass:
 
 > **Configuration Note:** Unlike the standard Informer which uses `prob` attention for extreme long sequences, this configuration utilizes **`attn='full'`**. Since our prediction horizon is short (`pred_len=1`), Full Attention provides superior granularity and accuracy compared to sparse approximations, while the Informer's Generative Decoder structure prevents error accumulation.
 
-##Live Prediction Performance (Jan 14 Snapshot)
+## Live Prediction Performance (Jan 14 Snapshot)
 
 To validate the model beyond historical backtesting, we deployed the Informer on live market data for the trading session of **January 14th**. The model demonstrated a **64.29% Directional Accuracy**, successfully identifying major trend reversals and breakouts.
 
@@ -141,7 +141,7 @@ To validate the model beyond historical backtesting, we deployed the Informer on
 * **Directional Accuracy:** **64.3%** (9/14 Correct)
 * **Observation:** The model tends to be *conservative* in its magnitude predictions (e.g., predicting +0.56% when the actual move was +2.34%), which is a desirable trait for risk-averse algorithmic trading systems.
 
-### 📋 Detailed Prediction Log
+### Detailed Prediction Log
 
 | Stock Symbol | Model Prediction | Actual Move | Result | Verdict |
 | :--- | :---: | :---: | :--- | :--- |
@@ -159,7 +159,7 @@ To validate the model beyond historical backtesting, we deployed the Informer on
 
 > **Analyst Note:** The model achieved "Dead On" accuracy for **COMFINCAP** and **INDIANVSH**, predicting the exact percentage range. The primary losses (e.g., HBESTATE) occurred in lower-cap stocks subject to sudden, news-driven volatility that purely technical models may miss.
 
-## 📉 Performance & Training Dynamics
+## Performance & Training Dynamics
 
 The model was trained for **42 Epochs** on a high-volatility dataset. The training logs demonstrate successful optimization of the Informer objective function, with consistent gradient propagation and loss convergence.
 
@@ -203,7 +203,7 @@ Below represent the training dynamics and forecast outputs generated during the 
 ---
 
 
-##Acknowledgements & References
+## Acknowledgements & References
 
 This project is an **adaptation** of the Informer architecture, specifically re-engineered for financial time-series forecasting. While the core ProbSparse attention mechanism is derived from the original research, the data pipeline and feature engineering have been custom-built for high-volatility stock market environments.
 
@@ -212,7 +212,7 @@ This project is an **adaptation** of the Informer architecture, specifically re-
 * **Authors:** Haoyi Zhou, et al.
 
 > **Note:** Significant modifications were made to the original codebase to support multi-variate financial datasets (4,000+ tickers) and "Walk-Forward" validation protocols.
-###Citation
+### Citation
 If you use this stock market adaptation or the original Informer architecture in your research, please cite the original authors:
 
 ```bibtex
