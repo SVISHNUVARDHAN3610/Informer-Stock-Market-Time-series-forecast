@@ -132,7 +132,7 @@ The Informer model processes four specific tensors during the forward pass:
 
 > **Configuration Note:** Unlike the standard Informer which uses `prob` attention for extreme long sequences, this configuration utilizes **`attn='full'`**. Since our prediction horizon is short (`pred_len=1`), Full Attention provides superior granularity and accuracy compared to sparse approximations, while the Informer's Generative Decoder structure prevents error accumulation.
 
-## 🔮 Live Prediction Performance (Jan 14 Snapshot)
+##Live Prediction Performance (Jan 14 Snapshot)
 
 To validate the model beyond historical backtesting, we deployed the Informer on live market data for the trading session of **January 14th**. The model demonstrated a **64.29% Directional Accuracy**, successfully identifying major trend reversals and breakouts.
 
@@ -199,7 +199,6 @@ Below represent the training dynamics and forecast outputs generated during the 
 
 <p align="center">
   <img src="Img-src/pred.png" width="45%" alt="Prediction Scatter">
-  <img src="Img-src/valid-test.png" width="45%" alt="Validation Testing">
 </p>
 
 ---
