@@ -182,7 +182,6 @@ Below represent the training dynamics and forecast outputs generated during the 
 #### A. Training Convergence
 <p align="center">
   <img src="Img-src/valid-test.png" width="45%" alt="Validation test">
-  <img src="Img-src/gradient-flow.png" width="45%" alt="Gradient Flow">
   <img src="Img-src/train.png" width="45%" alt="Gradient Flow">
   
 </p>
