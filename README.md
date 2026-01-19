@@ -25,8 +25,7 @@
 
 This repository implements the **Informer** architecture for long-sequence time-series forecasting (LSTF), specifically optimized for **Stock Market Data Analysis**. While traditional Transformer models suffer from high memory consumption and quadratic time complexity, the Informer model leverages a ProbSparse self-attention mechanism to achieve $\mathcal{O}(L \log L)$ complexity.
 
-This project demonstrates the model's capability to capture long-range dependencies in volatile financial datasets, providing accurate predictions for open/close prices and market trends.
-
+This project demonstrates the model's capability to capture long-range dependencies in volatile financial datasets, providing accurate predictions for open/close prices and market trends. **Furthermore, we address the challenge of non-stationary financial data by integrating distinct encoding techniques that preserve temporal context across extended horizons. The resulting framework not only improves forecast precision but also serves as a scalable backbone for developing automated algorithmic trading strategies.**
 ---
 
 ## 🧠 Methodology
@@ -37,29 +36,30 @@ The core innovation of this project lies in addressing the limitations of the va
 #### 1. ProbSparse Self-Attention
 To handle the quadratic complexity of canonical self-attention, we employ ProbSparse attention. This mechanism selects the "active" queries based on a measurement of Kullback-Leibler divergence, allowing the model to focus only on dominant features.
 
-The standard attention is defined as:
+The standard attention mechanism is defined as:
+
 $$
-\mathcal{A}(Q, K, V) = \text{Softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V
+\mathcal{A}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \mathrm{Softmax}\left(\frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d}}\right)\mathbf{V}
 $$
 
-In contrast, our **ProbSparse** attention restricts the query set to the top-$u$ dominant queries:
+In contrast, our **ProbSparse** attention restricts the query set to the top-$u$ dominant queries ($\bar{\mathbf{Q}}$), significantly reducing computational overhead:
+
 $$
-\mathcal{A}(Q, K, V) = \text{Softmax}\left(\frac{\bar{Q}K^T}{\sqrt{d}}\right)V
+\mathcal{A}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \mathrm{Softmax}\left(\frac{\bar{\mathbf{Q}}\mathbf{K}^\top}{\sqrt{d}}\right)\mathbf{V}
 $$
-Where $\bar{Q}$ contains only the active queries derived from the sparsity measurement.
 
 #### 2. Self-Attention Distilling
-To prevent feature redundancy in deep networks, we use a distilling operation that halves the input length in each layer, drastically reducing memory usage:
+To prevent feature redundancy in deep networks, we use a distilling operation that halves the input length in each layer. This operation drastically reduces memory usage while preserving essential information:
+
 $$
-X_{j+1}^t = \text{MaxPool}(\text{ELU}(\text{Conv1d}([X_j^t]_{\text{AB}})))
+\mathbf{X}_{j+1}^t = \mathrm{MaxPool}\left(\mathrm{ELU}\left(\mathrm{Conv1d}\left([\mathbf{X}_j^t]_{\mathrm{AB}}\right)\right)\right)
 $$
 
 #### 3. Generative Style Decoder
-Unlike standard encoder-decoder structures that generate outputs step-by-step (dynamic decoding), the Informer uses a generative decoder to predict the entire long sequence in a single forward pass, mitigating error accumulation during inference.
-
+Unlike standard encoder-decoder structures that generate outputs step-by-step (dynamic decoding), the Informer uses a generative decoder to predict the entire long sequence in a single forward pass. This method effectively mitigates error accumulation during the inference phase of long-sequence forecasting.
 ---
 
-## ⚡ Installation & Usage
+## Installation & Usage
 
 ### Prerequisites
 Ensure you have Python 3.8+ and PyTorch installed.
