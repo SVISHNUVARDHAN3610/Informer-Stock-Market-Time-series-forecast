@@ -234,3 +234,24 @@ If you use this stock market adaptation or the original Informer architecture in
   year={2021}
 }
 ```
+
+
+## 📬 Contact & Data Access
+
+This project maintains a high standard of data integrity and reproducibility. Due to the proprietary nature and massive scale of the training set (**4,452 tickers** with global macro-indices), the full dataset is not hosted in this repository.
+
+### 🏛️ Requesting the Dataset
+Researchers and developers interested in replicating these results or collaborating on financial AI projects may request access to the **pre-processed Market Data**.
+
+<div align="center">
+
+| **Senapathi Vishnu Vardhan** |
+| :---: |
+| *Associate Data Scientist & AI Researcher* |
+| [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:svishnuvardhan3610@gmail.com) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([https://linkedin.com/in/your-profile](https://www.linkedin.com/feed/)) |
+
+**[Mail Me](mailto:svishnuvardhan3610@gmail.com)** for:
+<br>
+`Original Market Dataset` • `Model Checkpoints` • `Collaboration`
+
+</div>
