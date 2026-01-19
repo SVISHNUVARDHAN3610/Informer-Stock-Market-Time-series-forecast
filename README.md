@@ -29,7 +29,7 @@ This project demonstrates the model's capability to capture long-range dependenc
 
 ---
 
-## 🧠 Methodology
+## Methodology
 
 ### The Informer Architecture
 The core innovation of this project lies in addressing the limitations of the vanilla Transformer when applied to LSTF. We utilize three distinct mechanisms to enhance prediction efficiency:
@@ -81,9 +81,9 @@ We compute proprietary technical signals to feed the attention mechanism with tr
 
 ### 3. Macro-Economic Context (Global & Local)
 To solve the "isolated asset" bias, we inject broad market health indicators directly into the feature vector:
-* **🇮🇳 Indian Benchmarks:** NIFTY 50, SENSEX, FinNifty.
-* **🏭 Sectoral Indices:** NIFTY IT, Pharma, Bank, Auto, Metal, Energy, Realty, PSU Bank.
-* **🌍 Global Correlations:** S&P 500 (USA), NASDAQ, Dow Jones, FTSE (UK), DAX (Germany), CAC40 (France), Nikkei (Japan), Hang Seng, Shanghai, Taiwan Weighted.
+* **Indian Benchmarks:** NIFTY 50, SENSEX, FinNifty.
+* **Sectoral Indices:** NIFTY IT, Pharma, Bank, Auto, Metal, Energy, Realty, PSU Bank.
+* **Global Correlations:** S&P 500 (USA), NASDAQ, Dow Jones, FTSE (UK), DAX (Germany), CAC40 (France), Nikkei (Japan), Hang Seng, Shanghai, Taiwan Weighted.
 
 ### 4. Lagged Temporal Features
 To capture immediate past dependencies explicitly before the Transformer layers:
@@ -91,6 +91,47 @@ To capture immediate past dependencies explicitly before the Transformer layers:
 * **Volume Lags:** Volume changes over the last 4 distinct time steps.
 
 > **Data Scale:** The final dataset comprises millions of data points, processed with Zero-Mean Unit-Variance normalization to stabilize the **ProbSparse** attention mechanism.
+
+## ⚙️ Model Architecture & Configuration
+
+The model is configured to handle high-dimensional inputs with a specific focus on short-term precision (`out_len=1`) using a full-attention mechanism. Below is the detailed hyperparameter configuration used for the final training runs.
+
+### 🔌 Input/Output Tensor Structure
+The Informer model processes four specific tensors during the forward pass:
+
+* **`x_enc` (Encoder Input):** The historical sequence of **100 features** (Open, Close, Indicators, Macro Indices).
+    * *Shape:* `(Batch, 96, 100)`
+* **`x_mark_enc` (Encoder Time Features):** Time-stamps encoded as embeddings (Day, Month, Weekday).
+    * *Shape:* `(Batch, 96, Features)`
+* **`x_dec` (Decoder Input):** A concatenation of the "Label" (start token) and zero-padding for the target.
+    * *Shape:* `(Batch, 48 + 1, 1)`
+* **`x_mark_dec` (Decoder Time Features):** Future time-stamps for the prediction horizon.
+    * *Shape:* `(Batch, 48 + 1, Features)`
+
+### 🛠 Hyperparameter Specification
+
+| Category | Parameter | Value | Description |
+| :--- | :--- | :--- | :--- |
+| **Data Dimensions** | `enc_in` | **100** | Input feature dimension (Stock + Indicators + Macro) |
+| | `dec_in` / `c_out` | **1** | Output dimension (Predicting `% Change`) |
+| | `seq_len` | **96** | Input sequence length (Lookback window) |
+| | `label_len` | **48** | Start token length for Generative Decoder |
+| | `pred_len` | **1** | Prediction horizon (Next-day forecast) |
+| **Architecture** | `d_model` | **128** | Dimension of the model embeddings |
+| | `n_heads` | **4** | Number of Multi-Head Attention heads |
+| | `e_layers` | **2** | Number of Encoder layers |
+| | `d_layers` | **1** | Number of Decoder layers |
+| | `d_ff` | **512** | Dimension of Fully Connected layer |
+| **Mechanism** | `attn` | **'full'** | Attention mechanism (Full Attention used for precision) |
+| | `embed` | **'timeF'** | Time-feature encoding strategy |
+| | `activation` | **'gelu'** | Activation function |
+| | `distil` | **False** | Distilling operation (Disabled for short sequences) |
+| **Training** | `batch_size` | **64** | Batch size for gradient descent |
+| | `dropout` | **0.1** | Dropout rate for regularization |
+| | `device` | **CUDA** | GPU Acceleration |
+
+> **Configuration Note:** Unlike the standard Informer which uses `prob` attention for extreme long sequences, this configuration utilizes **`attn='full'`**. Since our prediction horizon is short (`pred_len=1`), Full Attention provides superior granularity and accuracy compared to sparse approximations, while the Informer's Generative Decoder structure prevents error accumulation.
+
 
 ## Installation & Usage
 
